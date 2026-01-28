@@ -1,0 +1,138 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class StringInterviewPrograme {
+
+    public void stringReverse() {
+        String original = "Prasanna Messi";
+        String reversed = new StringBuilder(original).reverse().toString();
+        System.out.println("Original: " + original);
+        System.out.println("Reversed: " + reversed);
+    }
+
+    public void stringReverseAnotherWay() {
+        String s = "Prasanna Messi", rev = "";
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char c = s.charAt(i);
+            rev = rev + c;
+
+        }
+        System.out.println(rev);
+
+    }
+
+    public void palindrom() {
+        String s = "malayalam";
+        String rev = new StringBuilder(s).reverse().toString();
+        if (s.equals(rev)) {
+            System.out.println(s + " is a palindrome");
+        } else {
+            System.out.println(s + " is not a palindrome");
+
+        }
+    }
+
+    public void reverseWordsInString() {
+        String str = "Hello World from Java";
+        String[] words = str.split(" ");
+        String reversedStr = "";
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversedStr += words[i] + " ";
+        }
+
+        System.out.println("Original: " + str);
+        System.out.println("Reversed Words: " + reversedStr.trim());
+    }
+
+
+    public void reverseword() {
+        String s = "I love game", rev = "";
+
+        String[] s1 = s.split(" ");
+
+        for (int i = s1.length - 1; i >= 0; i--) {
+
+            rev += s1[i] + " ";
+            //======= Or =========
+            // rev = rev + s1[i] + " ";
+        }
+        System.out.println("reversed string is :" + rev);
+    }
+
+    public void charOccurence() {
+
+        String s = "Prasanna Nallusamy";
+
+        Map<Character, Integer> mp = new LinkedHashMap<Character, Integer>();
+
+        for (int i = 0; i < s.length(); i++) {
+            Character c = s.charAt(i);
+
+            if (mp.containsKey(c)) {
+                Integer n = mp.get(c);
+                mp.put(c, n + 1);
+            } else {
+                mp.put(c, 1);
+            }
+        }
+        System.out.println("character occurrence :" + mp);
+    }
+
+    public void charvowalsOccurence() {
+
+        String s = "Prasanna Nallusamy";
+
+        Map<Character, Integer> mp = new LinkedHashMap<Character, Integer>();
+        for (int i = 0; i < s.length(); i++) {
+            Character c = s.charAt(i);
+            if (c == 'A' || c == 'a' || c == 'e' || c == 'E' || c == 'I' || c == 'i' || c == 'o' || c == 'O' || c == 'u' || c == 'U') {
+                if (mp.containsKey(c)) {
+                    Integer n = mp.get(c);
+                    mp.put(c, n + 1);
+                } else {
+                    mp.put(c, 1);
+                }
+            }
+        }
+
+        System.out.println("vowals character occurrence :" + mp);
+    }
+
+    public void stringOccurence() {
+
+        String s = "prasanna Love FoodBall and Love badminton";
+
+        String[] s1 = s.split(" ");
+
+        Map<String, Integer> mp = new LinkedHashMap<String, Integer>();
+
+        for (int i = 0; i < s1.length; i++) {
+
+            String s2 = s1[i];
+
+            if (mp.containsKey(s2)) {
+                Integer n = mp.get(s2);
+                mp.put(s2, n + 1);
+            } else {
+                mp.put(s2, 1);
+            }
+        }
+        System.out.println("string occurrence :" + mp);
+    }
+
+    public static void main(String[] args) {
+        StringInterviewPrograme sp = new StringInterviewPrograme();
+//        sp.stringReverse();
+//        sp.palindrom();
+//        sp.stringReverseAnotherWay();
+//        sp.reverseWordsInString();
+//        sp.reverseword();
+//        sp.charOccurence();
+//        sp.charvowalsOccurence();
+        sp.stringOccurence();
+
+    }
+
+}
