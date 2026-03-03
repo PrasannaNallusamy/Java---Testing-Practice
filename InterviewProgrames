@@ -1,1 +1,410 @@
+Note :- 
+  import java.util.*;  --> to all programes
 
+
+
+
+
+
+//// ODD numbers
+	public static void main(String[] args) {	
+
+		for (int i = 0; i <= 100; i++) {
+
+			if (i % 2 == 1) {
+
+				System.out.println(i);
+			}
+		}
+	}
+====================================================================================		
+
+//// Even numbers
+	public static void main(String[] args) {	
+
+		for (int i = 0; i <= 100; i++) {
+
+			if (i % 2 == 1) {
+
+				System.out.println(i);
+			}
+		}
+	}	
+====================================================================================
+
+//// Reverse and palindrome 	
+	public static void main(String[] args) {
+		
+		int a = 886688, b = 0, c = 0, d = a;
+		while (a > 0) {
+			b = a % 10;
+			c = (c * 10) + b;
+			a = a / 10;
+		}
+		System.out.println("Rversed Number :" + c);
+
+		if (d == c) {
+
+			System.out.println("Number is palindrom");
+		}
+	}
+
+Output:
+	Rversed Number :886688
+	Number is palindrom
+====================================================================================
+
+// Number swapping without 3rd variable
+	public static void main(String[] args) {
+
+		int a = 20;
+		int b = 30;
+
+		a = a + b;
+		b = a - b;
+		a = a - b;
+
+		System.out.println("variable a :" + a);
+		System.out.println("variable b :" + b);
+
+	}	
+
+Output:
+	variable a :30
+	variable b :20	
+====================================================================================
+
+// Number swapping with 3rd variable
+	public static void main(String[] args) {
+
+		int a = 20;
+		int b = 30;
+		int c = a;
+		
+		a=b;
+		b=c;
+		
+		System.out.println("variable a :" + a);
+		System.out.println("variable b :" + b);
+	}	
+
+Output:
+	variable a :30
+	variable b :20		
+====================================================================================
+
+// String Reverse and palindrome
+	public static void main(String[] args) {
+
+		String s = "malayalam", rev = "";
+
+		for (int i = 0; i < s.length(); i++) {
+			rev = rev + s.charAt(i);
+
+		}
+
+		System.out.println("Reversed String: " + rev);
+
+		if (rev.equals(s)) {
+
+			System.out.println("String is palindrome");
+		}
+	}	
+
+Output:
+	Reversed String: malayalam
+	String is palindrome
+====================================================================================
+
+// print vowels count in string
+	public static void main(String[] args) {
+
+		String s = "education";
+		int count = 0;
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (c == 'a' || c == 'A' || c == 'e' || c == 'E' || c == 'i' || c == 'I' || c == 'o' || c == 'O' || c == 'u'
+					|| c == 'U') {
+
+				count++;
+			}
+
+		}
+
+		System.out.println("vowels String: " + count);
+	}	
+	
+Output:
+	vowels String: 5
+====================================================================================
+
+// Charactor occurence or char counts
+	public static void main(String[] args) {
+
+		String s = "prasanna messi";
+
+		Map<Character, Integer> mp = new LinkedHashMap();
+
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+
+			if (mp.containsKey(c)) {
+				Integer n = mp.get(c);
+
+				mp.put(c, n + 1);
+
+			} else {
+				mp.put(c, 1);
+			}
+
+		}
+		System.out.println(mp);
+	}
+
+Output:
+	{p=1, r=1, a=3, s=3, n=2, m=1, e=1, i=1}
+====================================================================================
+	
+// words occurence or words counts
+	public static void main(String[] args) {
+
+		String str = "Use this editor to write";
+
+		String[] str1 = str.split(" ");
+		Map<String, Integer> mp = new LinkedHashMap();
+
+		for (int i = 0; i < str1.length; i++) {
+			String str2 = str1[i];
+
+			if (mp.containsKey(str2)) {
+				Integer n = mp.get(str2);
+
+				mp.put(str2, n + 1);
+
+			} else {
+				mp.put(str2, 1);
+			}
+
+		}
+		System.out.println(mp);
+	}
+
+Output:
+	{Use=1, this=1, editor=1, to=1, write=1}
+====================================================================================
+	
+// first non repeating characters
+	public static void main(String[] args) {
+
+		String s = "Happy Hollidays";
+
+		s = s.toLowerCase().replace(" ", "");
+		Map<Character, Integer> mp = new LinkedHashMap();
+
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+
+			if (mp.containsKey(c)) {
+				Integer n = mp.get(c);
+
+				mp.put(c, n + 1);
+
+			} else {
+				mp.put(c, 1);
+			}
+
+		}
+	//first non repeating code getValue() == 1 ,first repeating code getValue() == 1
+	
+		Set<Map.Entry<Character, Integer>> mpentry = mp.entrySet();
+		for (Map.Entry<Character, Integer> charecters : mpentry) {
+			if (charecters.getValue() == 1) {
+				System.out.println("First Non repeating character : " + charecters.getKey());
+				break;
+			}
+		}
+	}	
+
+Output:
+First Non repeating character : o	
+====================================================================================
+
+// Move all zero into last in array 
+	public static void main(String[] args) {
+
+		int[] arr = { 0, -3, 9, 0, 6, -3, 0, 7 };
+
+		List l = new ArrayList();
+
+		for (int value : arr) {
+
+			if (value != 0) {
+
+				l.add(value);
+			}
+		}
+		for (int value : arr) {
+
+			if (value == 0) {
+
+				l.add(value);
+			}
+		}
+		System.out.println(l);
+
+	}
+	
+Output:
+	[-3, 9, 6, -3, 7, 0, 0, 0]
+====================================================================================	
+	
+// java code to print array elements appearing 2 or more times
+	public static void main(String[] args) {
+
+		String[] s = { "r", "y", "u", "r", "y" };
+
+		Map<String, Integer> mp = new LinkedHashMap();
+
+		for (int i = 0; i < s.length; i++) {
+			String s1 = s[i];
+			if (mp.containsKey(s1)) {
+				Integer n = mp.get(s1);
+				mp.put(s1, n + 1);
+			} else {
+
+				mp.put(s1, 1);
+			}
+		}
+		Set<Map.Entry<String, Integer>> entry = mp.entrySet();
+		for (Map.Entry<String, Integer> values : entry) {
+			if (values.getValue() <= 2) {
+
+				System.out.println(values.getKey());
+			}
+		}
+	}
+	
+Output:
+	r
+	y
+	u
+
+====================================================================================
+	
+// write a programe to read a sentence and print each word along with how many characters it contains 
+
+class Main {
+    public static void main(String[] args) {
+        
+        String sentence = "Use this editor to write, compile and run your Java code online";
+        
+        String[] s = sentence.split(" ");
+
+        
+        for(String word : s) {
+            System.out.println(word + " " + word.length());
+        }
+        
+    }
+}
+
+Output:
+	Use 3
+	this 4
+	editor 6
+	to 2
+	write 5	
+	
+====================================================================================	
+	public static void main(String[] args) {
+
+		String sentence = "My name is prakash. My country is India. India is a big country";
+
+		String[] input = sentence.split(" ");
+
+		Map<String, Integer> mp = new HashMap();
+
+		for (int i = 0; i < input.length; i++) {
+			String key = input[i];
+			if (mp.containsKey(key)) {
+				Integer n = mp.get(key);
+				mp.put(key, n + 1);
+			} else {
+				mp.put(key, 1);
+			}
+		}
+
+		System.out.println(mp);
+
+		// Variables to track the most frequent word and its count
+		String maxWord = "";
+		int maxCount = 0;
+
+		// Find the word with the highest count
+		for (Map.Entry<String, Integer> entry : mp.entrySet()) {
+			if (entry.getValue() > maxCount) {
+				maxCount = entry.getValue();
+				maxWord = entry.getKey();
+			}
+
+		}
+		System.out.println("The most frequent word is: " + maxWord);
+
+	}
+
+Output:
+	The most frequent word is: is
+====================================================================================
+
+// print smallest and largest character words 
+
+	   public static void main(String[] args) {
+	        
+	        String s ="Use this editor to write, compile and run your Java code online";
+	        
+	        String[] words = s.split(" ");
+	        
+	        String smallest = words[0];
+	        String largest = words[0];
+	        
+	        for(String word : words){
+	            if(word.length() < smallest.length()){
+	                
+	                smallest = word;
+	            }
+	            if(word.length() > largest.length()){
+	                
+	                largest = word;
+	            }     
+	        }
+	        
+	        System.out.println("Smallest word: "+smallest);
+	        System.out.println("Largest word: "+largest);
+	    }
+
+Output:
+	Smallest word: to
+	Largest word: compile
+
+====================================================================================
+//Anagrame Programe 
+
+	public static void main(String[] args) {
+		String s1 = "Silent";
+		String s2 = "Listen";
+		s1 = s1.toLowerCase();
+		s2 = s2.toLowerCase();
+		char[] char1 = s1.toCharArray();
+		char[] char2 = s2.toCharArray();
+		Arrays.sort(char1);
+		Arrays.sort(char2);
+		if (Arrays.equals(char1, char2)) {
+			System.out.println("Given strings are Anagram");
+		} else {
+			System.out.println("Given strings are NOT Anagram");
+		}
+	}
+
+Output:
+	Given strings are Anagram
+	
